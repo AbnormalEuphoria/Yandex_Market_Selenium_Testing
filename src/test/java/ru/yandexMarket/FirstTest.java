@@ -10,6 +10,9 @@ import org.openqa.selenium.NoSuchElementException;
 
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class FirstTest {
 
@@ -118,6 +121,16 @@ public class FirstTest {
                 break;
             }
         }
+        //Переключение на открытую вкладку смартфона
+        List<String> change_tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(change_tabs.get(1));
+
+        WebElement found_rating = driver.findElement(By.cssSelector("div[class='_10-ix'] div span[class='ybvaC']"));
+        String result = found_rating.getText();
+
+        System.out.println("Рейтинг:" + result);
+
+        driver.quit();
 
 
 
